@@ -1,3 +1,13 @@
-spring.application.name=InventoryService
+spring:
+  application:
+    name: InventoryService
+
+  datasource:
+    url: jdbc:h2:mem:inventory
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
 
 
+server:
+  port: 8001

@@ -1,14 +1,16 @@
 package com.hazem.inventoryservice.service;
 
-import com.hazem.inventoryservice.model.Item;
+import com.hazem.inventoryservice.dto.ItemDTO;
+import com.hazem.inventoryservice.dto.ItemRequestDTO;
 
 import java.util.List;
+import java.util.Set;
 
-public interface StockService {
+public interface InventoryService {
 
 
-    List<Item> getAvailableStock(List<String> Ids);
+    List<ItemDTO> getItemsByIds(Set<String> Ids);
 
-    void decreaseStock(List<String> Ids, int amount);
+    void updateStockToPlaceOrder(List<ItemRequestDTO> itemRequestList);
 
 }

@@ -1,4 +1,8 @@
 package com.hazem.inventoryservice.dto;
 
-public record ItemDTO() {
+
+import lombok.Builder;
+
+@Builder
+public record ItemDTO(String itemId, int availableQuantity) {
 }

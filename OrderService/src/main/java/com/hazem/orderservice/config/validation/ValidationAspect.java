@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class ValidationAspect {
 
 
-    @Before("execution(* com.hazem.inventoryservice.service..*(*))")
+    @Before("execution(* com.hazem.orderservice.service..*(*))")
     public void beforeValidation(JoinPoint joinPoint) {
         for (Object object : joinPoint.getArgs()) {
             ValidationHandler.validate(object);
