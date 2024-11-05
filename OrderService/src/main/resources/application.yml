@@ -1,3 +1,22 @@
 spring:
   profiles:
     active: dev
+
+
+
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        slidingWindowSize: 5                 # number of calls in the sliding window
+        failureRateThreshold: 50             # percentage of failed calls to open the circuit
+        waitDurationInOpenState: 10s         # time to wait before trying to close the circuit again
+        permittedNumberOfCallsInHalfOpenState: 5 # calls allowed during half-open state
+        minimumNumberOfCalls: 5              # minimum number of calls before calculating failure rate
+        slowCallRateThreshold: 50            # percentage of slow calls to open the circuit
+        slowCallDurationThreshold: 2s        # threshold to consider a call slow
+    instances:
+      itemStockService:
+        base-config: default
+      inventoryPlaceOrderService:
+        base-config: default
