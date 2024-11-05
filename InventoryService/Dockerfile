@@ -1,4 +1,6 @@
-FROM ubuntu:latest
+FROM openjdk:21
 LABEL authors="Hazem Tarek"
-
-ENTRYPOINT ["top", "-b"]
+WORKDIR ./inventory
+COPY /target/InventoryService.jar .
+EXPOSE 8001:8001
+CMD ["java", "-jar","InventoryService.jar"]
